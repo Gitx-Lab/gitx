@@ -125,3 +125,55 @@ Gitx is built around the following principles:
 - Repository-first workflows
 - Clear separation of responsibilities
 - Predictable and inspectable output
+
+---
+
+## Request to Repository Lifecycle
+
+This section describes how a single user request is transformed into
+a fully generated and initialized GitHub repository.
+
+Each request follows a strict one-to-one lifecycle:
+one request produces exactly one repository.
+
+```mermaid
+flowchart TB
+  U[User Request]
+  I[Input Interface]
+  G[Generation Layer - Grok]
+  B[Project Builder - gitx bot]
+  R[GitHub Repository]
+  E[Initialized Project]
+
+  U --> I
+  I --> G
+  G --> B
+  B --> R
+  R --> E
+```
+### Lifecycle Rules
+
+- Each request is treated as an isolated operation
+- No state is shared between requests
+- Repository creation is atomic and irreversible
+- Failed generations do not produce repositories
+
+---
+
+### Lifecycle Termination
+
+The lifecycle ends immediately after:
+
+- Repository creation
+- Initial project structure generation
+- First commit authored by gitx-bot
+
+After this point, gitx-bot has no implicit authority over the repository.
+
+### Boundary Clarification
+
+Gitx provides generation, not long-term project management.
+
+Once a repository is created, ownership and responsibility
+are transferred to the repository owner.
+
