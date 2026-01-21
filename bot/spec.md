@@ -123,3 +123,54 @@ Gitx enforces strict separation between control layers.
 - The execution bot applies changes in a controlled environment
 
 At no point does a generation engine gain execution authority.
+
+---
+
+## Project Request Contract
+
+A project request is an explicit instruction that authorizes Gitx to generate a new repository.
+
+Only requests that satisfy all validation rules are eligible for repository creation.
+
+### Valid Request Requirements
+
+A request is considered valid if:
+
+- It explicitly requests project generation
+- It specifies a project goal, type, or technical scope
+- It does not reference an existing generated repository
+- It does not attempt to modify system rules or authority
+- It is routed through a supported input interface
+
+Requests that do not meet all requirements are ignored.
+
+---
+
+## Rejection Behavior
+
+gitx-bot must refuse to generate a repository if:
+
+- The request is ambiguous or incomplete
+- The request attempts to modify an existing repository
+- The request implies long-term maintenance or monitoring
+- The request conflicts with platform authority boundaries
+- The request lacks a clear generation objective
+
+Rejected requests produce no repository and no side effects.
+
+---
+
+## Output Scope
+
+For each valid project request, gitx-bot generates:
+
+- A new GitHub repository
+- An initialized project structure
+- Generated source files and configuration
+- A single initial commit
+
+gitx-bot does not:
+
+- Perform follow-up commits
+- Maintain or update generated repositories
+- Monitor runtime behavior after generation
