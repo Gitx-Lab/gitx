@@ -1,0 +1,30 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Temp
+.tmp/
+.temp/
+
+# Environment
+.env
+.env.local
+
+# Build / output
+dist/
+build/
+out/
+
+# Node (future)
+node_modules/
+
+# Python (future)
+__pycache__/
+*.pyc
