@@ -83,3 +83,43 @@ gitx-bot does not:
 - Act as a long-term project maintainer
 
 The bot’s responsibility ends after successful repository creation and initial project generation.
+
+---
+
+## Authority Model
+
+Gitx separates platform authority from automated actions.
+
+### Human Authority
+
+- The Gitx platform is owned and maintained by a human operator
+- Core specifications and system design are authored manually
+- Platform rules are defined before any automation occurs
+
+### Bot Authority
+
+- The `gitx-bot` account is the only entity allowed to:
+  - Create new repositories
+  - Push generated project files
+  - Author commits for generated projects
+
+- The bot operates strictly within predefined rules
+- The bot cannot modify core platform specifications
+
+### Generation Authority
+
+- Grok is used exclusively as a generation engine
+- Grok has no direct access to GitHub
+- All outputs from Grok are validated and applied by `gitx-bot`
+
+---
+
+## Trust Boundaries
+
+Gitx enforces strict separation between control layers.
+
+- Human operators define intent and constraints
+- Generation engines produce candidate outputs
+- The execution bot applies changes in a controlled environment
+
+At no point does a generation engine gain execution authority.
