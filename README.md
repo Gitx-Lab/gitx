@@ -1,9 +1,7 @@
 # Gitx
 
-![Platform](https://img.shields.io/badge/platform-automation--spec-blue)
-![Repository](https://img.shields.io/badge/type-core--platform-purple)
-![Bot](https://img.shields.io/badge/bot-gitx--bot-black)
-![License](https://img.shields.io/badge/license-MIT-green)
+![type](https://img.shields.io/badge/type-core_platform-black)
+![bot](https://img.shields.io/badge/bot-gitx--bot-purple)
 
 Gitx is an automated project generation and execution platform.
 
